@@ -1,10 +1,14 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import { Project } from '@/typings';
+import { urlFor } from '@/sanity';
+import Link from 'next/link';
 
-type Props = {}
-const projects = [1,2,3];
+type Props = {
+  projects: Project[]
+}
 
-function Projects({}: Props) {
+function Projects({projects}: Props) {
   return (
     <motion.div 
       initial={{opacity: 0}}
@@ -19,7 +23,7 @@ function Projects({}: Props) {
       
       <div className='relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 text-[#A7BEAE]
       scrollbar-thin scrollbar-track-[#B85042]/80 scrollbar-thumb-[#E7E8D1]/80'>
-        {projects.map((project, i) => (
+        {projects?.map((project, i) => (
           <div key={project} className='w-screen flex-shrink-0 snap-center 
           flex flex-col space-y-5 items-center justify-center p-20 md:p-44 h-screen'>
             {/* UPDATE THIS AS WELL FOR NEXT JS IMAGES */}
@@ -34,21 +38,27 @@ function Projects({}: Props) {
             }}
             transition={{ duration: 1.2}}
             viewport={{once: true}}
-              src="https://cdn.iconscout.com/icon/premium/png-512-thumb/rocket-6995987-5732144.png?f=avif&w=512"
+              src={urlFor(project.image).url()}
               alt=""
             />
             <div className='space-y-10 px-0 md:px-10'>
               <h4 className='text-4xl font-semibold text-center'>
                 <span className='underline decoration-[#E7E8D1]/50'>
-                  Case Study {i+1} of {projects.length}:
+                  Projects {i+1} of {projects.length}:
                 </span> {" "}
-                 UPS clone
+                 {project.title}
               </h4>
+              <div className="flex justify-center">
+                {project?.technologies.map((technology) => (
+                  <img className="h-10 w-10"
+                  key={technology._id} src={urlFor(technology.image).url()} alt="" />
+                  ))}
 
+              </div>
               <p>
-                Aliwawa is an eCommerce app that uses Log in Authentication with Google and
-                Twitter. It has a beautiful Home Screen with posts of products to buy and sell
-                just like any eCommerce website. There is also a checkout page.
+                {project.summary}
+                {" "}
+                For more information, please check out my <Link href={project.linkToBuild}><span className='decoration underline'>github</span></Link> or <Link href='#contact'><span className='decoration underline'>ask me!</span></Link>. 
               </p>
             </div>
           </div>

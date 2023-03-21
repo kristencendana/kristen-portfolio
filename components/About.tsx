@@ -2,10 +2,14 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { useTypewriter } from 'react-simple-typewriter'
 import Link from 'next/link';
+import { PageInfo } from '@/typings';
+import { urlFor } from '@/sanity';
 
-type Props = {}
+type Props = {
+  pageInfo: PageInfo
+}
 
-function About({}: Props) {
+function About({pageInfo}: Props) {
   const [text, count] = useTypewriter({
     words: [
       ". . .", 
@@ -38,7 +42,7 @@ function About({}: Props) {
         opacity: 1
       }}
       viewport={{once: true}}
-      src="https://i.ibb.co/zHzsf8N/IMG-1-F5-AD208-C2-E6-1.jpg"
+      src={urlFor(pageInfo?.profilePic).url()}
       className='-mb-20 md:mb-0 flex-shrink-0 w-56 h-56 
       rounded-full object-cover md:rounded-lg md:w-64 md:h-95 xl:w-[500px] xl:h-[600px]'
       />
@@ -46,14 +50,7 @@ function About({}: Props) {
         <h4 className='text-4xl font-semibold'>
           A <span className='underline decoration-[#E7E8D1]/50'>little</span> bit about me {text}</h4>
           <p className='text-base text-[#E7E8D1]'>
-            I’m Kristen Abby (She/her). As a Filipino American, I am blesed with two names so you can call me either Kristen or Abby. 
-            I graduated at California State University, Long Beach with a double degree in Applied Mathematics 
-            and Mathematical Economics. After graduating, I worked at an amazing company called SpaceX, where I was
-            exposed to the world of technology, 
-            querying their relational database using MySql for the purchasing team. 
-            Most recently, I’ve had the opportunity to work under an open source tech accelerator called OS Labs, 
-            launching my product, Khartes – an open source cross-platform desktop application to help developers manage their kubernetes clusters.
-            I’m passionate about learning, developing, and producing wonderful content and if you’d like to learn more about me, feel free to <Link href='#contact'><span className='decoration underline'>Contact Me!</span></Link>
+            {pageInfo?.backgroundInformation} <Link href='#contact'><span className='decoration underline'>Contact Me!</span></Link>
             {/* <Link href='#contact'><span className='decoration underline'>Contact Me!</span></Link> */}
           </p>
       </div>

@@ -24,36 +24,36 @@ type Props = {
 }
 
 // static page rendering in Next Js (revalidate flag ever 10 seconds or so, keep sharing the cache)
-const Home = ({pageInfo, experiences, skills, projects, socials}: Props) => {
+export default function Home ({pageInfo, experiences, skills, projects, socials}: Props) {
   return (
     <div className='bg-black text-[#A7BEAE] h-screen snap-y snap-mandatory
     overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-[#B85042]/80 scrollbar-thumb-[#E7E8D1]/80' >
       <Head>
         <title>Kristen's Portfolio</title>
       </Head>
-      <Header/>
+      <Header socials={socials}/>
 
       <section id='hero' className='snap-start'>
-        <Hero />
+        <Hero pageInfo={pageInfo}/>
       </section>
 
       <section id='about' className='snap-center'>
-        <About/>
+        <About pageInfo={pageInfo}/>
       </section>
       
-
       {/* Experience */}
       <section id='experience' className='snap-center'>
-        <WorkExperience />
+        <WorkExperience experiences={experiences} />
       </section>
+
       {/* Skills */}
       <section id='skills' className='snap-start'>
-        <Skills />
+        <Skills skills={skills}/>
       </section> 
       {/* Projects */}
 
       <section id='projects' className='snap-start'>
-        <Projects />
+        <Projects projects={projects}/>
       </section> 
       {/* Contact Me */}
 
