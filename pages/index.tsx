@@ -1,14 +1,30 @@
+import type { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
+import Link from 'next/link';
 import Header from '../components/Header';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
-import Experience from '@/components/Experience';
+import WorkExperience from '@/components/WorkExperience';
 import Skills from '@/components/Skills';
 import Projects from '@/components/Projects';
 import ContactMe from '@/components/ContactMe';
-import Link from 'next/link';
+import { Experience, PageInfo, Project, Skill, Social } from '@/typings';
+import { fetchProjects } from '@/utils/fetchProjects';
+import { fetchExperiences } from '@/utils/fetchExperiences';
+import { fetchPageInfo } from '@/utils/fetchPageInfo';
+import { fetchSkills } from '@/utils/fetchSkills';
+import { fetchSocials } from '@/utils/fetchSocials';
 
-export default function Home() {
+type Props = {
+  pageInfo: PageInfo
+  experiences: Experience[]
+  skills: Skill[]
+  projects: Project[]
+  socials: Social[]
+}
+
+// static page rendering in Next Js (revalidate flag ever 10 seconds or so, keep sharing the cache)
+const Home = ({pageInfo, experiences, skills, projects, socials}: Props) => {
   return (
     <div className='bg-black text-[#A7BEAE] h-screen snap-y snap-mandatory
     overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-[#B85042]/80 scrollbar-thumb-[#E7E8D1]/80' >
@@ -28,7 +44,7 @@ export default function Home() {
 
       {/* Experience */}
       <section id='experience' className='snap-center'>
-        <Experience />
+        <WorkExperience />
       </section>
       {/* Skills */}
       <section id='skills' className='snap-start'>
@@ -55,4 +71,28 @@ export default function Home() {
       </Link>
     </div>
   )
+}
+
+// if you want to do it per server request, do getServerSideRendering
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const pageInfo: PageInfo = await fetchPageInfo();
+  const experiences: Experience[] = await fetchExperiences();
+  const projects: Project[] = await fetchProjects();
+  const skills: Skill[] = await fetchSkills();
+  const socials: Social[] = await fetchSocials();
+
+  return {
+    props: {
+      pageInfo,
+      experiences,
+      skills,
+      projects,
+      socials
+    },
+    // On deployment, we build ui ready and cache it so we don't have to rebuild every time we get a request
+    // Next.js will attempt to re-generate the page:
+    // - When a request comes in
+    // - At most once every 10 seconds
+    revalidate: 10,
+  }
 }

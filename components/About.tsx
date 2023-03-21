@@ -53,7 +53,7 @@ function About({}: Props) {
             querying their relational database using MySql for the purchasing team. 
             Most recently, I’ve had the opportunity to work under an open source tech accelerator called OS Labs, 
             launching my product, Khartes – an open source cross-platform desktop application to help developers manage their kubernetes clusters.
-            I’m passionate about learning, developing, and producing wonderful content and if you’d like to learn more about me, feel free to Contact me
+            I’m passionate about learning, developing, and producing wonderful content and if you’d like to learn more about me, feel free to <Link href='#contact'><span className='decoration underline'>Contact Me!</span></Link>
             {/* <Link href='#contact'><span className='decoration underline'>Contact Me!</span></Link> */}
           </p>
       </div>

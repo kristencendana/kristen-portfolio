@@ -4,7 +4,7 @@ import ExperienceCard from './ExperienceCard';
 
 type Props = {}
 
-function Experience({}: Props) {
+function WorkExperience({}: Props) {
   return (
     <motion.div className='h-screen flex relative overflow-hidden flex-col text-lft md:flex-row max-w-full px-10 justify-evenly mx-auto items-center'>
       {/* className='h-screen flex flex-col relative text-center 
@@ -23,4 +23,4 @@ function Experience({}: Props) {
   )
 }
 
-export default Experience
+export default WorkExperience;
