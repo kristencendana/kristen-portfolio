@@ -16,12 +16,12 @@ export default function Skills({skills}: Props) {
       className='flex relative flex-col text-center md:text-left 
       xl:flex-row max-w-[2000px] xl:px-10 min-h-screen justify-center xl:space-y-0 mx-auto items-center'
     >
-      <h3 className='absolute top-24 uppercase tracking-[20px] text-[#E7E8D1] text-2xl'>
+      <h3 className='pageName'>
         Skills
       </h3>
       {/* <h3 className='absolute top-36 uppercase tracking-[3px]'>Hover over a skill for current proficiency</h3> */}
 
-      <div className='grid grid-cols-5 gap-5'>
+      <div className='grid xxs:grid-cols-4 grid-cols-5 xxs:gap-4 gap-5'>
         {skills?.slice(0, skills.length / 2).map(skill => (
           <Skill key={skill._id} skill={skill} />
         ))}
