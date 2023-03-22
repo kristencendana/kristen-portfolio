@@ -23,8 +23,8 @@ function About({pageInfo}: Props) {
       whileInView={{ opacity: 1}}
       transition={{ duration: 1.5}}
       className='h-screen flex flex-col relative text-center 
-      md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center'>
-      <h3 className='absolute top-24 uppercase tracking-[20px] text-[#E7E8D1] text-2xl'>
+      md:text-left md:flex-row max-w-7xl xxs:px-5 px-10 justify-evenly mx-auto items-center'>
+      <h3 className='pageName'>
         About
       </h3>
 
@@ -42,13 +42,13 @@ function About({pageInfo}: Props) {
         }}
         viewport={{once: true}}
         src={urlFor(pageInfo?.profilePic).url()}
-        className='-mb-20 md:mb-0 flex-shrink-0 w-56 h-56 
+        className='-mb-20 mt-[3rem] md:mb-0 flex-shrink-0 xxs:w-40 xxs:h-40 xs:w-40 xs:h-40 w-56 h-56 
         rounded-full object-cover md:rounded-lg md:w-64 md:h-95 xl:w-[500px] xl:h-[600px]'
       />
-      <div className='space-y-10 px-0 md:px-10 text-center'>
-        <h4 className='text-4xl font-semibold'>
+      <div className='px-0 md:px-10 text-center'>
+        <h4 className='xxs:mt-8 xs:mt-8 xs:mb-0 xxs:text-xl xs:text-xl text-4xl font-semibold'>
           A <span className='underline decoration-[#E7E8D1]/50'>little</span> bit about me {text}</h4>
-          <p className='text-base text-[#E7E8D1]'>
+          <p className='xxs:text-[8px] xs:text-[10px] text-base text-[#E7E8D1]'>
             {pageInfo?.backgroundInformation} <Link href='#contact'><span className='decoration underline'>Contact Me!</span></Link>
           </p>
       </div>

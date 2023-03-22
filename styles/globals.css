@@ -4,7 +4,7 @@
 
 @layer components {
   .hero-button {
-    @apply xs:px-2 px-6 py-2 border border-[#0C0404] rounded-full uppercase xs:text-[10.5px] text-xs 
+    @apply xxs:px-1 xs:px-2 px-6 py-2 border border-[#0C0404] rounded-full uppercase xxs:text-[9px] xs:text-[10.5px] text-xs 
     tracking-widest text-[#B85042] transition-all 
     hover:border-[#E7E8D1]/40 hover:text-[#E7E8D1]/40
   }
@@ -13,5 +13,9 @@
     @apply outline-none bg-slate-400/10 rounded-sm border-b px-6 py-4 border-[#242424]
     text-[#A7BEAE] placeholder-gray-500 transition-all focus:border-[#E7E8D1]
     focus:text-[#E7E8D1] hover:border-[#E7E8D1]
+  }
+
+  .pageName {
+    @apply absolute xxs:top-16 xs:top-16 top-24 uppercase xxs:tracking-[12px] xs:tracking-[12px] tracking-[20px] text-[#E7E8D1] xxs:text-xl xs:text-xl text-2xl
   }
 }
