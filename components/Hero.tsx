@@ -32,12 +32,12 @@ function Hero({pageInfo}: Props) {
         height={1200} width={1200}
       />
       <div className='z-20'>
-        <h2 className='text-sm uppercase text-[#E7E8D1] pb-2 tracking-[15px]'>{pageInfo?.role}</h2>
-        <h1 className='text-5xl lg:text-6xl font-semibold px-10'>
-          <span className='mr-3'>{text}</span>
+        <h2 className='xs:text-[10px] text-sm uppercase text-[#E7E8D1] pb-2 xs:tracking-[5px] tracking-[15px]'>{pageInfo?.role}</h2>
+        <h1 className='xs:text-[20px] text-5xl lg:text-6xl font-semibold px-10'>
+          <span className='xs:mr-1 mr-3'>{text}</span>
           <Cursor cursorColor='#E7E8D1'/>
         </h1>
-        <div className='pt-5'>
+        <div className='xs:pt-1 pt-5'>
           <Link href="#about">
             <button className='hero-button'>
                 About

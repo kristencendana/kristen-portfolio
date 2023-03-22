@@ -55,6 +55,7 @@ export default function Home ({pageInfo, experiences, skills, projects, socials}
         <Projects projects={projects}/>
       </section> 
 
+
       <section id='contact' className='snap-start'>
         <ContactMe />
       </section> 
