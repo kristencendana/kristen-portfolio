@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { Project } from '@/typings';
 import { urlFor } from '@/sanity';
 import Link from 'next/link';
+import Image from 'next/image';
 
 type Props = {
   projects: Project[]
@@ -26,20 +27,21 @@ function Projects({projects}: Props) {
         {projects?.map((project, i) => (
           <div key={i} className='w-screen flex-shrink-0 snap-center 
           flex flex-col space-y-5 items-center justify-center p-20 md:p-44 h-screen'>
-            {/* UPDATE THIS AS WELL FOR NEXT JS IMAGES */}
             <motion.img
-            initial={{
-              y: -300,
-              opacity: 0
-            }}
-            whileInView={{
-              y: 0,
-              opacity: 1
-            }}
-            transition={{ duration: 1.2}}
-            viewport={{once: true}}
-              src={urlFor(project.image).url()}
-              alt=""
+              initial={{
+                y: -300,
+                opacity: 0
+              }}
+              whileInView={{
+                y: 0,
+                opacity: 1
+              }}
+              transition={{ duration: 1.2}}
+              viewport={{once: true}}
+                src={urlFor(project.image).url()}
+                alt=""
+                height={300}
+                width={300}
             />
             <div className='space-y-10 px-0 md:px-10'>
               <h4 className='text-4xl font-semibold text-center'>
@@ -50,10 +52,11 @@ function Projects({projects}: Props) {
               </h4>
               <div className="flex justify-center">
                 {project?.technologies.map((technology) => (
-                  <img className="h-10 w-10"
-                  key={technology._id} src={urlFor(technology.image).url()} alt="" />
-                  ))}
-
+                  <Image className="h-10 w-10"
+                    key={technology._id} src={urlFor(technology.image).url()} alt="" 
+                    height={1200} width={1200} 
+                  />
+                ))}
               </div>
               <p>
                 {project.summary}
@@ -63,11 +66,8 @@ function Projects({projects}: Props) {
             </div>
           </div>
         ))}
-        {/* Projects */}
-        {/* Projects */}
       </div>
-      
-      <div className='w-full absolute top-[30%] bg-slate-400/10 left-0 h-[500px] -skew-y-12' />
+    <div className='w-full absolute top-[30%] bg-slate-400/10 left-0 h-[500px] -skew-y-12' />
     </motion.div>
   )
 }

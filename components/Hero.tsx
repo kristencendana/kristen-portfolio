@@ -4,7 +4,8 @@ import BackgroundCircles from './BackgroundCircles';
 import Link from 'next/link';
 import { PageInfo } from '@/typings';
 import { urlFor } from '@/sanity';
-// import Image from 'next/image';
+import Image from 'next/image';
+
 type Props = {
   pageInfo: PageInfo
 }
@@ -17,7 +18,6 @@ function Hero({pageInfo}: Props) {
       "<InquisitiveProblemSolver />", 
       "CatLover.config.js", 
       "But-allergic-to-cats.gitignore", 
-      // "kristen.env.NODE_ENV === Development"
     ],
     loop: true,
     delaySpeed: 2000,
@@ -26,10 +26,11 @@ function Hero({pageInfo}: Props) {
     <div className='h-screen flex flex-col space-y-8 items-center justify-center
     text-center overflow-hidden'>
       <BackgroundCircles />
-      {/* Add image via NextJS images later!!! */}
-      <img 
-      className='relative rounded-full h-32 w-32 mx-auto object-cover'
-      src={urlFor(pageInfo?.heroImage).url()} alt=""/>
+      <Image 
+        className='relative rounded-full h-32 w-32 mx-auto object-cover'
+        src={urlFor(pageInfo?.heroImage).url()} alt=""
+        height={1200} width={1200}
+      />
       <div className='z-20'>
         <h2 className='text-sm uppercase text-[#E7E8D1] pb-2 tracking-[15px]'>{pageInfo?.role}</h2>
         <h1 className='text-5xl lg:text-6xl font-semibold px-10'>
@@ -40,7 +41,8 @@ function Hero({pageInfo}: Props) {
           <Link href="#about">
             <button className='hero-button'>
                 About
-            </button></Link>
+            </button>
+          </Link>
           <Link href="#experience">
             <button className='hero-button'>
               Experience
@@ -62,4 +64,4 @@ function Hero({pageInfo}: Props) {
   )
 }
 
-export default Hero
+export default Hero;

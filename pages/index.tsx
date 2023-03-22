@@ -14,6 +14,8 @@ import { fetchExperiences } from '@/utils/fetchExperiences';
 import { fetchPageInfo } from '@/utils/fetchPageInfo';
 import { fetchSkills } from '@/utils/fetchSkills';
 import { fetchSocials } from '@/utils/fetchSocials';
+import Image from 'next/image';
+import { urlFor } from '@/sanity';
 
 type Props = {
   pageInfo: PageInfo
@@ -29,7 +31,7 @@ export default function Home ({pageInfo, experiences, skills, projects, socials}
     <div className='bg-black text-[#A7BEAE] h-screen snap-y snap-mandatory
     overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-[#B85042]/80 scrollbar-thumb-[#E7E8D1]/80' >
       <Head>
-        <title>Kristen's Portfolio</title>
+        <title>Kristen&#39;s Portfolio</title>
       </Head>
       <Header socials={socials}/>
 
@@ -41,21 +43,17 @@ export default function Home ({pageInfo, experiences, skills, projects, socials}
         <About pageInfo={pageInfo}/>
       </section>
       
-      {/* Experience */}
       <section id='experience' className='snap-center'>
         <WorkExperience experiences={experiences} />
       </section>
 
-      {/* Skills */}
       <section id='skills' className='snap-start'>
         <Skills skills={skills}/>
       </section> 
-      {/* Projects */}
 
       <section id='projects' className='snap-start'>
         <Projects projects={projects}/>
       </section> 
-      {/* Contact Me */}
 
       <section id='contact' className='snap-start'>
         <ContactMe />
@@ -63,9 +61,10 @@ export default function Home ({pageInfo, experiences, skills, projects, socials}
 
       <Link href="#hero">
       <footer className='sticky bottom-5 w-full cursor-pointer'>
-        <div className='flex items-center justify-center'>
-          <img className="h-10 w-10 rounded-full filter grayscale hover:grayscale-0 cursor-pointer" 
-          src="https://i.im.ge/2023/03/17/DiN3o9.Screen-Shot-2022-11-04-at-11-37-37-AM.png" alt=""/>
+        <div className='flex items-center justify-center flex-col'>
+          <Image className="h-10 w-10 rounded-full filter grayscale hover:grayscale-0 cursor-pointer" 
+            src={urlFor(pageInfo.heroImage).url()} alt="" height={1200} width={1200}/>
+            <p>Home</p>
         </div>
         </footer>
       </Link>

@@ -12,34 +12,31 @@ export default function Header({ socials }: Props) {
   return (
     <header className='sticky p-5 top-0 flex items-start justify-between max-w-7xl mx-auto z-20 xl:items-center'>
       <motion.div 
-      initial={{
-        x:-500,
-        opacity: 0,
-        scale: 0.5
-      }}
-      animate={{
-        x:0,
-        opacity: 1,
-        scale: 1
-      }}
-      transition={{
-        duration: 1.5,
-      }}
-      className="flex flex-row items-center">
-        {/* Social Icons */}
-        {socials.map((social) => (
-          <SocialIcon
-            key={social._id}
-            url={social.url}
-            fgColor='#E7E8D1' 
-            bgColor='transparent' 
-          />
-        ))}
+        initial={{
+          x:-500,
+          opacity: 0,
+          scale: 0.5
+        }}
+        animate={{
+          x:0,
+          opacity: 1,
+          scale: 1
+        }}
+        transition={{
+          duration: 1.5,
+        }}
+        className="flex flex-row items-center">
+          {socials.map((social) => (
+            <SocialIcon
+              key={social._id}
+              url={social.url}
+              fgColor='#E7E8D1' 
+              bgColor='transparent' 
+            />
+          ))}
       </motion.div>
 
-      {/* <Link href="#contact"> */}
-      {/* <div> */}
-        <motion.div 
+      <motion.div 
         initial={{
           x: 500,
           opacity: 0,
@@ -54,8 +51,6 @@ export default function Header({ socials }: Props) {
           duration: 1.5
         }}
         className='flex flex-row items-center text-gray-300 cursor-pointer'>
-          {/* <Link href='#contact'> */}
-          {/* <Link href="#contact"> */}
           <SocialIcon 
               className='cursor-pointer'
               url='#contact'
@@ -63,16 +58,10 @@ export default function Header({ socials }: Props) {
               fgColor='#E7E8D1'
               bgColor='transparent' 
             />
-          {/* </Link> */}
-            <Link href="#contact">
-
-          <p className='uppercase hidden md:inline-flex text-sm text-[#E7E8D1]'>Get In Touch</p>
-            </Link>
+          <Link href="#contact">
+            <p className='uppercase hidden md:inline-flex text-sm text-[#E7E8D1]'>Get In Touch</p>
+          </Link>
         </motion.div>
-
-      {/* </div> */}
-        {/* </Link> */}
-      {/* </Link> */}
     </header>
   )
 }
