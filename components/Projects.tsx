@@ -22,9 +22,9 @@ function Projects({projects}: Props) {
       </h3>
       
       <div className='relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 text-[#A7BEAE]
-      scrollbar-thin scrollbar-track-[#B85042]/80 scrollbar-thumb-[#E7E8D1]/80'>
+      scrollbar scrollbar-track-[#B85042]/80 scrollbar-thumb-[#E7E8D1]/80'>
         {projects?.map((project, i) => (
-          <div key={project} className='w-screen flex-shrink-0 snap-center 
+          <div key={i} className='w-screen flex-shrink-0 snap-center 
           flex flex-col space-y-5 items-center justify-center p-20 md:p-44 h-screen'>
             {/* UPDATE THIS AS WELL FOR NEXT JS IMAGES */}
             <motion.img

@@ -13,7 +13,6 @@ function About({pageInfo}: Props) {
   const [text, count] = useTypewriter({
     words: [
       ". . .", 
-      // "kristen.env.NODE_ENV === Development"
     ],
     loop: true,
     delaySpeed: 2000,
@@ -51,7 +50,6 @@ function About({pageInfo}: Props) {
           A <span className='underline decoration-[#E7E8D1]/50'>little</span> bit about me {text}</h4>
           <p className='text-base text-[#E7E8D1]'>
             {pageInfo?.backgroundInformation} <Link href='#contact'><span className='decoration underline'>Contact Me!</span></Link>
-            {/* <Link href='#contact'><span className='decoration underline'>Contact Me!</span></Link> */}
           </p>
       </div>
     </motion.div>
