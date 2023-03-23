@@ -15,7 +15,13 @@
     focus:text-[#E7E8D1] hover:border-[#E7E8D1]
   }
 
+  /* .contactMessage {
+    @apply outline-none bg-slate-400/10 rounded-sm border-b py-5 px-10 border-[#242424]
+    text-[#A7BEAE] placeholder-gray-500 transition-all focus:border-[#E7E8D1]
+    focus:text-[#E7E8D1] hover:border-[#E7E8D1]
+  } */
+
   .pageName {
-    @apply absolute xxs:top-16 xs:top-16 top-24 uppercase xxs:tracking-[12px] xs:tracking-[12px] tracking-[20px] text-[#E7E8D1] xxs:text-xl xs:text-xl text-2xl
+    @apply absolute top-16 uppercase xxs:tracking-[12px] xs:tracking-[12px] tracking-[20px] text-[#E7E8D1] xxs:text-xl xs:text-xl text-2xl
   }
 }

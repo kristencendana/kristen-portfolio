@@ -62,10 +62,10 @@ export default function Home ({pageInfo, experiences, skills, projects, socials}
 
       <Link href="#hero">
       <footer className='sticky xxs:bottom-1 xs:bottom-1 bottom-5 w-full cursor-pointer'>
-        <div className='flex items-center justify-center flex-col'>
-          <Image className="xxs:h-6 xxs:w-6 xs:h-6 xs:w-6 h-10 w-10 rounded-full filter grayscale hover:grayscale-0 cursor-pointer" 
+        <div className='flex items-end flex-col pr-6'>
+          <Image className="xxs:mr-1.5 xxs:h-6 xxs:w-6 xs:h-6 xs:w-6 short:h-8 short:w-8 h-10 w-10 rounded-full filter grayscale hover:grayscale-0 cursor-pointer" 
             src={urlFor(pageInfo.heroImage).url()} alt="" height={1200} width={1200}/>
-            <p className="text-[10px]">Home</p>
+            <p className="text-[10px] xs:mr-0 mr-1">Home</p>
         </div>
         </footer>
       </Link>

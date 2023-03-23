@@ -23,25 +23,24 @@ function ContactMe() {
 
   return (
     <div className='h-screen flex relative flex-col 
-    text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center'>
-      <h3 className='absolute top-24 uppercase tracking-[20px] text-[#E7E8D1] text-2xl'>
+    text-center md:text-left md:flex-rowmax-w-7xl px-10 justify-evenly mx-auto items-center'>
+      <h3 className='pageName'>
         Contact
       </h3>
 
       <div className='flex flex-col space-y-10'>
-        <h4 className='text-4xl font-semibold text-center'>
-          I&#39;m excited to meet you too! {" "}
-          <span className='decoration-[#E7E8D1]/50 underline'>Let&#39;s Connect</span>
+        <h4 className='xxs:text-xl text-4xl font-semibold text-center'>
+          <span className='decoration-[#E7E8D1]/50 underline'>Let&#39;s Connect!</span>
         </h4>
 
         <div>
           <div className='flex items-center space-x-5 justify-center'>
             <EnvelopeIcon className='text-[#E7E8D1] h-7 w-7 animate-pulse'/>
-            <p className='text-2xl'>kristencendana@yahoo.com</p>
+            <p className='xxs:text-sm xs:text-base text-2xl'>kristencendana@yahoo.com</p>
           </div>
         </div>
-        <form onSubmit={sendEmail} className='flex flex-col space-y-2 w-fit mx-auto'>
-          <div className='flex space-x-2'>
+        <form onSubmit={sendEmail} className='flex flex-col xxs:space-y-1 space-y-2 w-fit mx-auto'>
+          <div className='flex xxs:flex-col xxs:space-x-0 xxs:space-y-1 xs:flex-col xs:space-x-0 xs:space-y-1 space-x-2'>
             <input placeholder="Name" className='contactInput' type="text" name="name"/>
             <input placeholder="Email" className='contactInput' type="email" name="email"/>
           </div>

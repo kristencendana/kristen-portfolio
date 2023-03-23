@@ -5,7 +5,13 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      screens: {
+        'short': { 'raw': '(max-height: 600px)' },
+        // => @media (min-height: 800px) { ... }
+        // 'middle': { 'raw': '(min-height: 601px),(max-height: 800px)'  },
+      }
+    },
     screens: {
       'xxs': {'max': '300px'},
       'xs': {'min': '301px', 'max': '640px'},
@@ -19,11 +25,8 @@ module.exports = {
       'lg': {'min': '1024px', 'max': '1279px'},
       // => @media (min-width: 1024px and max-width: 1279px) { ... }
 
-      'xl': {'min': '1280px', 'max': '1535px'},
+      'xl': {'min': '1280px'},
       // => @media (min-width: 1280px and max-width: 1535px) { ... }
-
-      '2xl': {'min': '1536px'},
-      // => @media (min-width: 1536px) { ... }
     },
   },
   plugins: [require('tailwind-scrollbar')],
