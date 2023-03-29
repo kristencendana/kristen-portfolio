@@ -8,6 +8,7 @@ function ContactMe() {
   const sendEmail = (e: any) => {
     e.preventDefault(); // prevents page from reloading when you hit 'submit'
 
+
     if (process.env.NEXT_PUBLIC_YOUR_SERVICE_ID && process.env.NEXT_PUBLIC_YOUR_TEMPLATE_ID) {
       emailjs.sendForm(process.env.NEXT_PUBLIC_YOUR_SERVICE_ID, process.env.NEXT_PUBLIC_YOUR_TEMPLATE_ID, e.target, process.env.NEXT_PUBLIC_YOUR_PUBLIC_KEY)
         .then((result) => {
@@ -41,10 +42,10 @@ function ContactMe() {
         </div>
         <form onSubmit={sendEmail} className='flex flex-col xxs:space-y-1 space-y-2 w-fit mx-auto'>
           <div className='flex xxs:flex-col xxs:space-x-0 xxs:space-y-1 xs:flex-col xs:space-x-0 xs:space-y-1 space-x-2'>
-            <input placeholder="Name" className='contactInput' type="text" name="name"/>
-            <input placeholder="Email" className='contactInput' type="email" name="email"/>
+            <input placeholder="Name" className='contactInput' type="text" name="name" required/>
+            <input placeholder="Email" className='contactInput' type="email" name="email" required/>
           </div>
-          <textarea placeholder="Message" className='contactInput' name="message"/>
+          <textarea placeholder="Message" className='contactInput' name="message" required/>
           <input type="submit" className='bg-[#B85042]/80 py-5 px-10 rounded-md text-black font-bold text-lg' value="Send"/>
         </form>
       </div>
